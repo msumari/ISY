@@ -1,3 +1,5 @@
+const socket = io('/');
+
 const videoview = document.getElementById('show');
 const myvideo = document.createElement('video');
 myvideo.muted = true;
@@ -11,6 +13,8 @@ navigator.mediaDevices.getUserMedia({
     videoshow = stream;
     addvideoshow(myvideo,stream);
 }) 
+
+socket.emit('join_chatroom');
 
 const addvideoshow = (video, stream)=>{
     video.srcObject = stream;
