@@ -1,3 +1,8 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
 #show{
     display: flex;
     justify-content: center;
@@ -8,4 +13,88 @@
     height: 200px;
     width: 300px;
     object-fit: cover;
+}
+
+.main{
+    height: 100vh;
+    display: flex;
+}
+
+.left_screen{
+    flex: 0.8;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.right_screen{
+    flex: 0.2;
+}
+
+.video_stream{
+    flex-grow: 1;
+    background-color: royalblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 10px;
+    min-width: 80px;
+    cursor: pointer;
+    color: rgba(221, 2, 2, 0.959);
+    font-weight: bold;
+    font-size: 23px;
+}
+.button1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 10px;
+    min-width: 80px;
+    cursor: pointer;
+    color: yellow;
+}
+
+.button2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 10px;
+    min-width: 80px;
+    cursor: pointer;
+    color: darkgreen;
+}
+
+.control{
+    display: flex;
+    background-color: cornflowerblue;
+    padding: 7px;
+    justify-content: space-between;
+}
+.control_part{
+    display: flex;
+}
+
+.button1 i{
+    font-size: 25px;
+}
+.button2 i{
+    font-size: 25px;
+}
+
+.button1:hover{
+    background-color: #343434;
+    border-radius: 5px;
+}
+.button2:hover{
+    background-color: #e98440;
+    border-radius: 5px;
 }
