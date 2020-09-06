@@ -58,3 +58,21 @@ const addvideoshow = (video, stream)=>{
     })
     videoview.append(video);
 }
+
+
+let sms = $('input')
+console.log(sms)
+
+$('html').keydown((e)=>{
+    if(e.which == 13 && sms.val().length !== 0){
+        console.log(sms.val())
+        socket.emit('message',sms.val());
+        sms.val('')
+
+    }
+})
+
+socket.on('createsms',message=>{
+    console.log("this come from server", message)
+})
+

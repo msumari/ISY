@@ -25,7 +25,12 @@ io.on('connection',socket => {
     socket.on('join_chatroom',(roomid,userId) => {
         socket.join(roomid);
         socket.to(roomid).broadcast.emit('user_connected',userId);
+        socket.on('message',message=>{
+            io.to(roomid).emit('createsms', message)
         })
+    
+    
+    })
 })
 
 
