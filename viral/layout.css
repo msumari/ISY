@@ -98,3 +98,31 @@ body{
     background-color: #e98440;
     border-radius: 5px;
 }
+
+.right_screen{
+    display: flex;
+    flex-direction: column;
+    background-color: #6784;
+    border-left: 1px solid;
+}
+
+.chat{
+    color: darkblue;
+    text-align: center;
+}
+
+.chat_window{
+    flex-grow: 1;
+}
+
+.message_container{
+    padding: 22px 12px;
+    display: flex;
+}
+
+.message_container input{
+    flex-grow: 1;
+    background-color: transparent;
+    border: none;
+    color: darkblue;
+}
