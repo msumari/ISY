@@ -113,6 +113,7 @@ body{
 
 .chat_window{
     flex-grow: 1;
+    overflow-y:auto;
 }
 
 .message_container{
@@ -125,4 +126,12 @@ body{
     background-color: transparent;
     border: none;
     color: darkblue;
+}
+
+.unmute{
+    color:red
+}
+
+.stop{
+    color: red;
 }

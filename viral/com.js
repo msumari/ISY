@@ -14,7 +14,7 @@ var peer = new Peer(undefined, {
 let videoshow
 navigator.mediaDevices.getUserMedia({
     video:true,
-    audio:false
+    audio:true
 }).then(stream=>{
     videoshow = stream;
     addvideoshow(myvideo,stream);
@@ -73,6 +73,70 @@ $('html').keydown((e)=>{
 })
 
 socket.on('createsms',message=>{
-    console.log("this come from server", message)
+    $('ul').append(`<li class="message"<b>user</b></br>${message}</li>`);
+    limiter()
 })
+
+
+const limiter = ()=>{
+    let z = $('.chat_window');
+    z.scrollTop(z.prop("scrollHeight"));
+}
+
+
+const mutemod = ()=>{
+    const enabled = videoshow.getAudioTracks()[0].enabled;
+    if(enabled){
+        videoshow.getAudioTracks()[0].enabled = false;
+        unmutebut();
+    }else{
+        videoshow.getAudioTracks()[0].enabled = true;
+        mutebut();
+    }
+}
+
+const mutebut = () =>{
+    const html = `
+    <i class="fas fa-microphone"></i>
+    <span>Mute</span>
+    `
+    document.querySelector('.mute_button').innerHTML = html;
+
+}
+
+const unmutebut = ()=>{
+    const html = `
+    <i class=" stop fas fa-microphone-alt-slash"></i>
+    <span>Unmute</span>
+    `
+    document.querySelector('.mute_button').innerHTML = html;
+}
+
+const quitmod = ()=>{
+    const enabled = videoshow.getVideoTracks()[0].enabled;
+    if(enabled){
+        videoshow.getVideoTracks()[0].enabled = false;
+        unquitbut();
+    }else{
+        videoshow.getVideoTracks()[0].enabled = true;
+        quitbut();
+    }
+}
+
+const quitbut = () =>{
+    const html = `
+    <i class="fas fa-video"></i>
+    <span>Quit video</span>
+    `
+    document.querySelector('.quit_button').innerHTML = html;
+
+}
+const unquitbut = ()=>{
+    const html = `
+    <i class=" unmute fas fa-video-slash"></i>
+    <span>Show video</span>
+    `
+    document.querySelector('.quit_button').innerHTML = html;
+}
+
 
